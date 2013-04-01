@@ -12,7 +12,7 @@ public class ExceptionInFieldConstructing {
         /**
          * This field throws an exception while instantiating.
          */
-        private InputStream iThrowExceptionWhileInstantiating = new FileInputStream("random unexist file name");
+        private InputStream iThrowExceptionWhileInstantiating = new FileInputStream("random unexisted file name");
 
         /**
          * Constructor with explicit throws statement for the field {@code iThrowExceptionWhileInstantiating}.
