@@ -43,10 +43,17 @@ public class PublicContractMethodAccessTest {
     @Test
     public void testGetSize() {
         int size = namesAsList.size();
-        assertEquals(4, size);
+        assertEquals(ACTUAL_SIZE, size);
 
         size = namesByAdd.size();
-        assertEquals(4, size);
+        assertEquals(ACTUAL_SIZE, size);
+    }
+
+    @Test
+    public void testPublicGetReflectedSize() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Method sizeMethod = namesByAdd.getClass().getMethod("size");
+        int reflectedSize = (int) sizeMethod.invoke(namesByAdd);
+        assertEquals(ACTUAL_SIZE, reflectedSize);
     }
 
     @Test(expected = IllegalAccessException.class)
@@ -68,7 +75,7 @@ public class PublicContractMethodAccessTest {
         Method sizeMethod = namesAsList.getClass().getMethod("size");
         sizeMethod.setAccessible(true);
         int reflectedSize = (int) sizeMethod.invoke(namesAsList);
-        assertEquals(4, reflectedSize);
+        assertEquals(ACTUAL_SIZE, reflectedSize);
     }
 
     @After
