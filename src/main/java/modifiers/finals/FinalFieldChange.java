@@ -29,7 +29,7 @@ public class FinalFieldChange {
             change(person, "country", "Malaysia");
             System.out.println("Reflection modified person: " + person);
         } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            throw new RuntimeException(e);
         }
     }
 

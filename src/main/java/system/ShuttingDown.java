@@ -23,7 +23,8 @@ public class ShuttingDown {
         System.out.println("(ShuttingDown.test()) NOTE: Test will print '" + ON_EXIT_MESSAGE + "' with seq number of the hook on exit of JVM.");
         for (int i = 0; i < 5; i++) {
             final int seqNumber = i;
-            Runtime.getRuntime().addShutdownHook(new Thread(() -> printShutdownMessage(ON_EXIT_MESSAGE, seqNumber)));
+            // todo
+//            Runtime.getRuntime().addShutdownHook(new Thread(() -> printShutdownMessage(ON_EXIT_MESSAGE, seqNumber)));
         }
     }
 }
